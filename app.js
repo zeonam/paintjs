@@ -20,14 +20,15 @@ ctx.lineWidth = 2.5
 let painting = false
 let filling = false 
 
-function stopPainting(){
+
+
+function stopPainting() {
     painting = false
 }
 
 function startPainting() {
     painting = true
 }
-
 
 function onMouseMove(event) {
     const x = event.offsetX
@@ -50,7 +51,6 @@ function handloeColorClick(event) {
 function handleRangeChange(event) {
     const size = event.target.value
     ctx.lineWidth = size
-
 }
 
 function handleModeClick(event) {
@@ -61,7 +61,6 @@ function handleModeClick(event) {
     else{
         filling = true
         mode.innerText = "Paint"
-        
     }
 }
 
@@ -71,17 +70,18 @@ function handleCanvasClick() {
     }
 }
 
-function handleCM(event){
+function handleCM(event) {
     event.preventDefault()
 }
 
-function handleSaveClick(){
+function handleSaveClick() {
     const image = canvas.toDataURL()
     const link = document.createElement("a")
     link.href = image
     link.download = "mypainting.png"
     link.click()
 }
+
 
 if(canvas) {
     canvas.addEventListener("mousemove", onMouseMove)
@@ -93,7 +93,6 @@ if(canvas) {
 }
 
 Array.from(colors).forEach(color => color.addEventListener("click", handloeColorClick))
-
 
 if(range) {
     range.addEventListener("input", handleRangeChange)
